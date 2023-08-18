@@ -1,5 +1,16 @@
 const express = require('express');
+const mongoose = require('mongoose')
 const app = express();
+const URL = "mongodb+srv://Mahesh:y39LKs2NWUuaJtDG@cluster0.yfyid.mongodb.net/Book-keeping-app";
+
+// Connecting Database
+mongoose.connect('mongodb+srv://Mahesh:y39LKs2NWUuaJtDG@cluster0.yfyid.mongodb.net/', {
+    // useFindandmodify: true,
+    useUnifiedTopology: true,
+    // useCreateIndex: true,
+    // useNewUrlPaeser: true
+}).then(() => { console.log("Connection Success......."); })
+    .catch(err => { console.log(err); })
 
 // Routes
 // User Routes
@@ -21,7 +32,7 @@ app.delete('/api/users/:id', (req, res) => {
 });
 
 // Fetch Users
-app.get('/api/users', (req, res) =>{
+app.get('/api/users', (req, res) => {
     res.send('Fetch Users')
 })
 
@@ -31,3 +42,6 @@ const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
     console.log(`Server is listening on Port ${PORT}`);
 })
+
+// Mahesh
+// y39LKs2NWUuaJtDG
