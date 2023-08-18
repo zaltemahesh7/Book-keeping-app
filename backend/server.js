@@ -1,16 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const app = express();
-const URL = "mongodb+srv://Mahesh:y39LKs2NWUuaJtDG@cluster0.yfyid.mongodb.net/Book-keeping-app";
+const connect = require('./config/connect')
 
-// Connecting Database
-mongoose.connect('mongodb+srv://Mahesh:y39LKs2NWUuaJtDG@cluster0.yfyid.mongodb.net/', {
-    // useFindandmodify: true,
-    useUnifiedTopology: true,
-    // useCreateIndex: true,
-    // useNewUrlPaeser: true
-}).then(() => { console.log("Connection Success......."); })
-    .catch(err => { console.log(err); })
+
+// db Connection
+connect()
 
 // Routes
 // User Routes
